@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+
+@mixin phone {
+    @media (min-width: v.$phone){
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop){
+        @content;
+    }
+}
+@mixin grid($columns, $gap) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($columns, 1fr);
+}
+@mixin bgImageContact($url) {
+    content: '';
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    left: 0;
+    top: -.3rem;
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem;
+}
+@mixin heading {
+    display: inline-block;
+    line-height: 1.6;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid v.$white;
+}
+@mixin btn($bgColor, $textColor) {
+    background-color: $bgColor;
+    color: $textColor;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+    transition-property: background-color;
+    transition-duration: .3s;
+
+    &:hover {
+        background-color: darken($bgColor, 10%);
+    }
+}

@@ -1,0 +1,96 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+/* Sobre TechPRo */
+.notavif.notwebp .header {
+    background-image: url(../img/bg_header.jpg);
+}
+.webp .header {
+    background-image: url(../img/bg_header.webp);
+}
+.avif .header {
+    background-image: linear-gradient(to bottom, transparentize(v.$grayDark, .1) 0%, transparentize(v.$grayDark, .1) 100%), url(../img/bg_header.avif);
+}
+.header {
+    height: 60rem;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @include m.tablet {
+        text-align: left;
+    }
+
+    &__grid {
+        color: v.$white;
+        display: flex;
+        flex-direction: column;
+        max-width: 30rem;
+
+        @include m.tablet {
+            max-width: calc(100% + 2rem);
+        }
+    }
+
+    &__my-name {
+        font-weight: 700;
+        font-size: 3rem;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 5rem;
+            height: 5rem;
+            background-image: url(../img/laptop-code-solid.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 5rem;
+            margin: 0 auto 2rem auto;
+            
+            @include m.tablet {
+                margin: 0 0 2rem 0;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            padding: .5rem;
+            margin-bottom: 1rem;;
+            border-bottom: 2px solid v.$white;
+        }
+        
+        @include m.tablet {
+            font-size: 6rem;
+            max-width: 50rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        margin: 0;
+
+        @include m.tablet {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__content {
+        animation: 1s ease-in-out 0s 1 headerAnimation;
+    }
+
+    @keyframes headerAnimation {
+        0% {
+            opacity: 0;
+            transform: translateY(-10rem);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

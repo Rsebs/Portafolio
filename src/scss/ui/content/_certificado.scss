@@ -1,0 +1,27 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.certificado {
+    padding: 5rem 0 10rem 0;
+
+    &__heading {
+        @include m.heading;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 30rem);
+        column-gap: 4rem;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+
+        @include m.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__image {
+        scroll-snap-align: center;
+        border-radius: 2rem;
+    }
+}

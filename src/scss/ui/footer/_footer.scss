@@ -1,0 +1,72 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    color: v.$white;
+    padding: 8rem 0;
+
+    &__heading {
+        @include m.heading;
+    }
+
+    &__text {
+        font-size: 1.8rem;
+    }
+}
+
+.contacto {
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+
+        @include m.tablet {
+            @include m.grid(2, 2rem);
+        }
+    }
+
+    &__link {
+        color: v.$white;
+        position: relative;
+        padding-left: 5rem;
+        font-size: 1.8rem;
+
+        &[href*="google.com/maps"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/house.svg');
+            }
+        }
+
+        &[href*="@gmail.com"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/email.svg');
+            }
+        }
+        &[href*="+57302531357"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/phone.svg');
+            }
+        }
+        &[href*="wa.me"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/whatsapp.svg');
+            }
+        }
+        &[href*="facebook.com"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/facebook.svg');
+            }
+        }
+        &[href*="instagram.com"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/instagram.svg');
+            }
+        }
+        &[href*="github.com"] {
+            &::before {
+                @include m.bgImageContact('../img/contact/github.svg');
+            }
+        }
+    }
+    
+}

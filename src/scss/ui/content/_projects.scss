@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.projects {
+    background-color: v.$gray;
+    color: v.$white;
+    padding: 10rem 0;
+
+    &__heading {
+        @include m.heading;
+    }
+
+    &__grid {
+        @include m.grid(1, 2rem);
+        align-items: center;
+        justify-content: center;
+
+        @include m.tablet {
+            @include m.grid(2, 2rem);
+        }
+
+        @include m.desktop {
+            @include m.grid(3, 2rem);
+        }
+    }
+}
+
+.project {
+    padding: 3rem;
+    background: darken(v.$gray, 5%);
+
+
+    &__image {
+        background: v.$white;
+        height: 30rem;
+        border-radius: 2rem;
+        margin: 0 auto;
+    }
+
+    &__description {
+        line-height: 1.7;
+        font-size: 1.7rem;
+        text-align: justify;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 5rem;
+    }
+
+    &__link {
+        @include m.btn(v.$primary, v.$black);
+
+    }
+}

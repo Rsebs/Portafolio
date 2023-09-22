@@ -1,0 +1,62 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.skills {
+    padding: 10rem 0;
+    background-color: v.$grayDark;
+    color: v.$white;
+
+    &__wave {
+        margin-top: -18.5rem;
+    }
+
+    @include m.tablet {
+        &__wave {
+            margin-top: -25rem;
+        }
+    }
+
+    @include m.desktop {
+        &__wave {
+            margin-top: -32.5rem;
+        }
+    }
+
+    &__grid {
+        @include m.tablet {
+            @include m.grid(5, 4rem);
+            justify-content: center;
+            align-items: center;
+            grid-auto-flow: dense;
+        }
+    }
+
+    &__content {
+        margin-bottom: 7rem;
+
+        @include m.tablet {
+            grid-column: 3 / 6;
+        }
+    }
+
+    &__image-content  {
+        @include m.tablet {
+            grid-column: 1 / 3;
+        }
+    }
+
+    &__image {
+        height: 20rem;
+        margin: 0 auto;
+    }
+
+    &__heading {
+        @include m.heading;
+    }
+
+    &__text {
+        line-height: 1.8;
+        text-align: justify;
+        font-size: 1.7rem;
+    }
+}
