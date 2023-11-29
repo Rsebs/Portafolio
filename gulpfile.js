@@ -59,4 +59,5 @@ exports.webpVersion = webpVersion;
 exports.avifVersion = avifVersion;
 exports.dev = dev;
 
-exports.default = series(images, webpVersion, avifVersion, css, dev);
+// exports.default = series(images, webpVersion, avifVersion, css, dev);
+exports.default = series(images, css, dev);
